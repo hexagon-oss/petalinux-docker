@@ -2,13 +2,15 @@ FROM ubuntu:16.04
 
 MAINTAINER z4yx <z4yx@users.noreply.github.com>
 
-# build with docker build --build-arg PETA_VERSION=2018.1 --build-arg PETA_RUN_FILE=petalinux-v2018.1-final-installer.run -t petalinux:2018.1 .
+# build with docker build --build-arg PETA_VERSION=2019.2 --build-arg PETA_RUN_FILE=petalinux-v2019.2-final-installer.run -t petalinux:2019.2 .
 
 ARG UBUNTU_MIRROR=mirror.tuna.tsinghua.edu.cn
 
 #install dependences:
 RUN sed -i.bak s/archive.ubuntu.com/${UBUNTU_MIRROR}/g /etc/apt/sources.list && \
-  dpkg --add-architecture i386 && apt-get update && apt-get install -y \
+  dpkg --add-architecture i386 && \
+  apt-get update && \
+  apt-get install -y \
   build-essential \
   sudo \
   tofrodos \
